@@ -149,6 +149,47 @@ export default {
         });
     },
 
+    editItem(item) {
+      this.editedIndex = item.id;
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+
+    save(item) {
+      if (this.editedIndex > -1) {
+        axios
+          .put(`http://localhost:3000/users/${item.id}`, {
+            id: this.editedItem.id,
+            first_name: this.editedItem.first_name,
+            last_name: this.editedItem.last_name,
+            email: this.editedItem.email,
+            phone: this.editedItem.phone,
+            address: this.editedItem.address,
+          })
+          .then((response) => {
+            console.log(response);
+            this.initialize();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } else {
+        axios
+          .post(`http://localhost:3000/users/`, {
+            user: this.editedItem,
+          })
+          .then((response) => {
+            console.log(response);
+            console.log("Created!");
+            this.initialize();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+      this.close();
+    },
+
     close() {
       this.dialog = false;
       setTimeout(() => {
