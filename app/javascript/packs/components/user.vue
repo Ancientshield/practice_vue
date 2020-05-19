@@ -190,6 +190,23 @@ export default {
       this.close();
     },
 
+    deleteItem(item) {
+      const index = this.desserts.indexOf(item);
+      confirm("Are you sure you want to delete this item?");
+      axios
+        .delete(`http://localhost:3000/users/${item.id}`)
+        .then((response) => {
+          console.log(response);
+          console.log(response.data.json);
+          alert(response.data.json);
+          this.initialize();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      this.desserts.splice(index, 1);
+    },
+
     close() {
       this.dialog = false;
       setTimeout(() => {
