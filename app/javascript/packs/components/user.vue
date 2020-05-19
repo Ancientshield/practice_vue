@@ -128,7 +128,7 @@ export default {
   methods: {
     initialize() {
       return axios
-        .get("http://localhost:3000/users")
+        .get("users")
         .then((response) => {
           console.log(response.data);
           this.desserts = response.data;
@@ -140,7 +140,7 @@ export default {
 
     getUser(item) {
       axios
-        .get(`https://localhost:3000/${item.id}`)
+        .get(`${item.id}`)
         .then((response) => {
           this.dessert = response.data;
         })
@@ -158,7 +158,7 @@ export default {
     save(item) {
       if (this.editedIndex > -1) {
         axios
-          .put(`http://localhost:3000/users/${item.id}`, {
+          .put(`users/${item.id}`, {
             id: this.editedItem.id,
             first_name: this.editedItem.first_name,
             last_name: this.editedItem.last_name,
@@ -175,7 +175,7 @@ export default {
           });
       } else {
         axios
-          .post(`http://localhost:3000/users/`, {
+          .post(`users`, {
             user: this.editedItem,
           })
           .then((response) => {
@@ -194,7 +194,7 @@ export default {
       const index = this.desserts.indexOf(item);
       confirm("Are you sure you want to delete this item?");
       axios
-        .delete(`http://localhost:3000/users/${item.id}`)
+        .delete(`users/${item.id}`)
         .then((response) => {
           console.log(response);
           console.log(response.data.json);
