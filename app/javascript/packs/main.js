@@ -14,5 +14,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log(app);
 });
-
-console.log("VUe~~");
