@@ -1,5 +1,4 @@
 module.exports = {
-  mode: "production",
   rules: [
     {
       test: /\.s(c|a)ss$/,
@@ -8,11 +7,18 @@ module.exports = {
         "css-loader",
         {
           loader: "sass-loader",
+          // Requires sass-loader@^7.0.0
+          options: {
+            implementation: require("sass"),
+            fiber: require("fibers"),
+            indentedSyntax: true, // optional
+          },
+          // Requires sass-loader@^8.0.0
           options: {
             implementation: require("sass"),
             sassOptions: {
               fiber: require("fibers"),
-              indentedSyntax: true,
+              indentedSyntax: true, // optional
             },
           },
         },
@@ -21,7 +27,8 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      vue$: "vue/dist/vue.esm.js",
+      vue: "vue/dist/vue.js",
+      vue_resource: "vue-resource/dist/vue-resource",
     },
   },
 };
