@@ -4,3 +4,4 @@ require("@rails/activestorage").start();
 require("channels");
 
 import "vuetify/dist/vuetify.min.css";
+import "../src/style.scss";
