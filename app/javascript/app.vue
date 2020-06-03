@@ -1,3 +1,4 @@
+<!--
 <template>
   <div id="app">
     <v-app>
@@ -27,3 +28,4 @@ p {
   text-align: center;
 }
 </style>
+-->
