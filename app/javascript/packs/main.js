@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuetify from "vuetify";
-import user from "./components/user.vue";
+import user from "./components/User";
 
 Vue.use(Vuetify);
 
