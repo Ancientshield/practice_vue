@@ -8,6 +8,6 @@ document.addEventListener("turbolinks:load", () => {
   const app = new Vue({
     el: '[data-behavior="vue-app"]',
     vuetify: new Vuetify(),
-    components: user,
+    components: { user },
   });
 });
