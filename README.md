@@ -1,6 +1,6 @@
 # Vue_on_Rails
 
-[Demo link](https://obscure-cliffs-45329.herokuapp.com/)
+[Demo link](obscure-cliffs-45329.herokuapp.com/)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
